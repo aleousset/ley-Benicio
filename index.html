@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley Benicio - Espacios Cardioprotegidos en Tucumán</title>
+    
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+        .max-w-6xl { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .max-w-4xl { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+        /* Barra de navegación */
+        nav {
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid #f1f5f9;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #dc2626;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #dc2626;
+        }
+        .btn-nav {
+            background-color: #dc2626;
+            color: #ffffff !important;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 14px;
+        }
+        .btn-nav:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Héroe / Entrada principal */
+        header {
+            background-color: #0f172a;
+            color: #ffffff;
+            text-align: center;
+            padding: 96px 24px;
+        }
+        .badge {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #f87171;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            display: inline-block;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin: 24px 0;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        h1 span {
+            color: #ef4444;
+        }
+        .header-p {
+            color: #94a3b8;
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+        .flex-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background-color: #dc2626;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.2);
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .btn-primary:hover {
+            background-color: #b91c1c;
+        }
+        .btn-secondary {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            border: 1px solid #334155;
+            transition: all 0.2s;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            background-color: #334155;
+            color: #ffffff;
+        }
+
+        /* Secciones generales */
+        section {
+            padding: 80px 24px;
+        }
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+        .divider {
+            width: 48px;
+            height: 4px;
+            background-color: #dc2626;
+            margin: 0 auto 48px auto;
+            border-radius: 9999px;
+        }
+
+        /* Tarjeta de la historia */
+        .card-story {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+        }
+        .card-story p {
+            font-size: 18px;
+            color: #334155;
+            margin-bottom: 24px;
+        }
+        .grid-features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 32px;
+        }
+        @media (min-width: 640px) {
+            .grid-features { grid-template-columns: 1fr 1fr; }
+        }
+        .feature-item {
+            display: flex;
+            gap: 16px;
+        }
+        .feature-icon { font-size: 24px; }
+        .feature-title { font-weight: 700; color: #0f172a; }
+        .feature-desc { font-size: 14px; color: #475569; margin-top: 4px; }
+
+        /* Sección obligados */
+        .bg-slate { background-color: #f1f5f9; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .grid-cards { grid-template-columns: 1fr 1fr 1fr; }
+        }
+        .card-box {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .card-box .box-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #fef2f2;
+            color: #dc2626;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        .card-box h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #0f172a; }
+        .card-box p { font-size: 14px; color: #475569; }
+
+        /* Alerta Sanciones */
+        .alert-box {
+            background-color: #fffbeb;
+            border: 1px solid #fef3c7;
+            padding: 32px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .alert-box { flex-direction: row; }
+        }
+        .alert-icon { font-size: 32px; }
+        .alert-title { font-size: 20px; font-weight: 700; color: #78350f; margin-bottom: 8px; }
+        .alert-desc { font-size: 14px; color: #92400e; }
+
+        /* Footer de contacto */
+        .bg-dark { background-color: #0f172a; color: #ffffff; text-align: center; }
+        .bg-dark p { color: #94a3b8; font-size: 14px; margin-bottom: 40px; }
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        @media (min-width: 640px) {
+            .contact-buttons { flex-direction: row; }
+        }
+        .btn-mail {
+            background-color: #dc2626;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 1;
+        }
+        .btn-whatsapp {
+            background-color: #059669;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 1;
+        }
+
+        /* Ventana Emergente (Modal Interactivo) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            padding: 32px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #64748b;
+        }
+        .select-comercio {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            margin-top: 16px;
+            font-size: 16px;
+            outline: none;
+        }
+        .resultado-box {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 10px;
+            display: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* Créditos */
+        footer {
+            background-color: #020617;
+            color: #64748b;
+            padding: 32px 24px;
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="max-w-6xl nav-container">
+            <a href="#" class="logo">
+                ❤️ Ley Benicio
+            </a>
+            <div class="nav-links">
+                <a href="#ley">La Ley</a>
+                <a href="#obligados">¿Quiénes cumplen?</a>
+                <a href="#contacto" class="btn-nav">Consultar</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="max-w-4xl">
+            <span class="badge">Ley Provincial N° 9.314 • Tucumán</span>
+            <h1>Espacios <span>Cardioprotegidos</span> obligatorios</h1>
+            <p class="header-p">
+                Garantizando desfibriladores externos automáticos (DEA) y capacitación obligatoria en RCP para salvar vidas en accesos masivos.
+            </p>
+            <div class="flex-buttons">
+                <!-- Botón corregido con ID para vinculación de JS -->
+                <button id="btnVerificar" class="btn-primary">¿Mi comercio está obligado?</button>
+                <!-- Enlace corregido para ir directo a la sección inferior de contacto -->
+                <a href="#contacto" class="btn-secondary">Asesoramiento gratuito</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="modalComercio" class="modal-overlay">
+        <div class="modal-content">
+            <button id="btnCerrarModal" class="close-modal">&times;</button>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 8px;">Verificar Obligatoriedad</h3>
+            <p style="color: #64748b; font-size: 14px;">Seleccioná el rubro de tu actividad para saber si necesitás un DEA según la Ley Benicio:</p>
+            
+            <select id="rubroSelect" class="select-comercio">
+                <option value="">-- Elegí una opción --</option>
+                <option value="si">Gimnasio o Centro Deportivo</option>
+                <option value="si">Hotel / Alojamiento Turístico</option>
+                <option value="si">Salón de Fiestas / Discoteca</option>
+                <option value="si">Colegio / Universidad / Instituto</option>
+                <option value="si">Centro Comercial / Supermercado Grande</option>
+                <option value="no">Oficina Privada Pequeña (Menos de 50 personas)</option>
+                <option value="no">Kiosco / Almacén de Barrio</option>
+            </select>
+
+            <div id="resultado" class="resultado-box"></div>
+        </div>
+    </div>
+
+    <section id="ley">
+        <div class="max-w-4xl">
+            <h2 class="section-title">El origen de la normativa</h2>
+            <div class="divider"></div>
+            <div class="card-story">
+                <p>
+                    Sancionada en memoria de <strong>Benicio Bichara</strong>, esta ley busca que ningún rincón de Tucumán quede desamparado ante una emergencia cardíaca. La falta de respuesta rápida cuesta vidas; por eso la obligatoriedad es una acción colectiva.
+                </p>
+                <div class="grid-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">⏱️</span>
+                        <div>
+                            <h4 class="feature-title">Tiempo crítico</h4>
+                            <p class="feature-desc">Actuar dentro de los primeros 3 minutos eleva enormemente las chances de supervivencia.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🤝</span>
+                        <div>
+                            <h4 class="feature-title">Comunidad preparada</h4>
+                            <p class="feature-desc">No basta con el aparato: el personal del lugar debe saber exactamente cómo reaccionar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="obligados" class="bg-slate">
+        <div class="max-w-6xl">
+            <h2 class="section-title">Establecimientos obligados</h2>
+            <div class="divider"></div>
+            
+            <div class="grid-cards">
+                <div class="card-box">
+                    <div class="box-icon">🏋️‍♂️</div>
+                    <h3>Deporte y Recreación</h3>
+                    <p>Gimnasios, natatorios, clubes deportivos y complejos de entrenamiento físico exigente.</p>
+                </div>
+                <div class="card-box">
+                    <div class="box-icon">🏨</div>
+                    <h3>Hotelería y Ocio</h3>
+                    <p>Hoteles, hosterías, salones de eventos masivos, discotecas y centros culturales turísticos.</p>
+                </div>
+                <div class="card-box">
+                    <div class="box-icon">🏫</div>
+                    <h3>Instituciones</h3>
+                    <p>Establecimientos educativos públicos y privados, universidades y grandes centros de compras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sanciones">
+        <div class="max-w-4xl">
+            <div class="alert-box">
+                <div class="alert-icon">⚠️</div>
+                <div>
+                    <h3 class="alert-title">Multas e Incumplimientos</h3>
+                    <p class="alert-desc">
+                        Las sanciones por no poseer un DEA homologado o no capacitar al personal son rigurosas en Tucumán. Pueden alcanzar valores equivalentes a miles de salarios mínimos e incluir la clausura inmediata del establecimiento hasta regularizar la situación.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="bg-dark">
+        <div class="max-w-4xl">
+            <h2 class="section-title" style="color: white;">¿Dudas sobre cómo adecuarse?</h2>
+            <p>Ponete en contacto directo con nosotros. Te asesoramos sobre proveedores de DEA homologados y cursos válidos en la provincia.</p>
+            
+            <div class="contact-buttons">
+                <!-- CAMBIA 'tu-correo@ejemplo.com' POR TU EMAIL REAL -->
+                <a href="mailto:aleousset@hotmail.com?subject=Consulta%20Ley%20Benicio" class="btn-mail" mail aleousset@gmail.com>
+                    ✉️ Consultar por Mail
+                    
+                </a>
+
+                <!-- CAMBIA '549381XXXXXXXX' POR TU NÚMERO DE TELÉFONO -->
+                <a href="https://wa.me/5493815061263?text=Hola,%20necesito%20informacion%20sobre%20la%20Ley%20Benicio" target="_blank" class="btn-whatsapp">
+                    💬 WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Plataforma Informativa Comunitaria de la Ley Benicio N° 9.314. Tucumán, Argentina.</p>
+    </footer>
+
+    <script>
+        // Sistema robusto de eventos seguro contra políticas locales
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            var modal = document.getElementById('modalComercio');
+            var btnVerificar = document.getElementById('btnVerificar');
+            var btnCerrar = document.getElementById('btnCerrarModal');
+            var select = document.getElementById('rubroSelect');
+            var resultado = document.getElementById('resultado');
+
+            // Abrir Modal
+            if (btnVerificar) {
+                btnVerificar.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                });
+            }
+
+            // Cerrar Modal al hacer clic en la X
+            if (btnCerrar) {
+                btnCerrar.addEventListener('click', function() {
+                    cerrarYLimpiar();
+                });
+            }
+
+            // Cerrar Modal al hacer clic afuera de la caja blanca
+            if (modal) {
+                modal.addEventListener('click', function(event) {
+                    if (event.target === modal) {
+                        cerrarYLimpiar();
+                    }
+                });
+            }
+
+            function cerrarYLimpiar() {
+                modal.classList.remove('active');
+                if (select) select.value = "";
+                if (resultado) resultado.style.display = "none";
+            }
+
+            // Evaluar los rubros al cambiar de opción
+            if (select) {
+                select.addEventListener('change', function() {
+                    if (select.value === "si") {
+                        resultado.style.display = "block";
+                        resultado.style.backgroundColor = "#fef2f2";
+                        resultado.style.color = "#991b1b";
+                        resultado.style.border = "1px solid #fee2e2";
+                        resultado.innerHTML = "🚨 <strong>OBLIGATORIO:</strong> Tu rubro está incluido en la Ley N° 9.314. Debes contar con un DEA instalado y personal capacitado en RCP.";
+                    } else if (select.value === "no") {
+                        resultado.style.display = "block";
+                        resultado.style.backgroundColor = "#f0fdf4";
+                        resultado.style.color = "#166534";
+                        resultado.style.border = "1px solid #dcfce7";
+                        resultado.innerHTML = "✅ <strong>EXENTO / RECOMENDADO:</strong> No estás obligado directamente por ley debido al flujo bajo, pero se aconseja como medida preventiva cardioprotegida.";
+                    } else {
+                        resultado.style.display = "none";
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
